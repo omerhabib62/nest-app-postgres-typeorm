@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_db
+    shm_size: 128mb
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: nest_app_postgres_typeorm
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: poll_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
